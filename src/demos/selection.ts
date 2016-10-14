@@ -27,7 +27,7 @@ import '../themes/material.scss';
         <h4>Selections</h4>
         <ul>
           <li *ngFor='let sel of selections'>
-            {{sel.name}}
+            {{sel | json}}
           </li>
         </ul>
       </div>
@@ -71,6 +71,7 @@ export class App {
   }
 
   onSelectionChange(selected) {
+    this.selections =  selected;
     console.log('Selection!', selected);
   }
 
