@@ -1,13 +1,28 @@
 export function selectRows(selected, row) {
   const selectedIndex = selected.indexOf(row);
-
+  // selecting process
   if(selectedIndex > -1) {
+    // remove row if unselected.
+    console.log('Removed from selected :', row);
+    row.selected = false;
     selected.splice(selectedIndex, 1);
   } else {
+    // add if selected
+    console.log('Added to selected :', row);
+    row.selected = true;
     selected.push(row);
   }
-
   return selected;
+}
+
+export function selectAllRows(selected, rows) {
+  console.log(selected);
+  // Select all rows with checkbox
+  rows.map(row => {
+      row.selected=true; 
+      selected.push(row);
+    }
+  );
 }
 
 export function selectRowsBetween(selected, rows, index, prevIndex) {

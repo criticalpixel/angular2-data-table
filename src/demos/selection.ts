@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 
 import {
   TableOptions,
@@ -7,6 +7,7 @@ import {
   ColumnMode
 } from '../index';
 import '../themes/material.scss';
+import { selectAllRows } from '../utils/selection';
 
 @Component({
   selector: 'app',
@@ -20,6 +21,13 @@ import '../themes/material.scss';
           [selected]='selections'
           [options]='options'
           (onSelectionChange)='onSelectionChange($event)'>
+          <template #checkBoxHeader let-row="row" let-value="value" let-i="index">
+            <input type="checkbox" (click)="selectAll(selections,rows)"
+             style="height:30px;" id="AllCheckbox" aria-label="...">
+          </template>
+          <template #checkBoxColumn let-row="row" let-value="value" let-index="index">
+            <input type="checkbox"  [(ngModel)]="row.selected" style="height:30px;" id="blankCheckbox" aria-label="...">
+          </template>
         </datatable>
       </div>
 
@@ -34,24 +42,14 @@ import '../themes/material.scss';
     </div>
   `
 })
-export class App {
+export class App implements OnInit  {
+
+  @ViewChild('checkBoxHeader') checkBoxHeader: TemplateRef<any>;
+  @ViewChild('checkBoxColumn') checkBoxColumn: TemplateRef<any>;
 
   rows = [];
   selections = [];
-
-  options = new TableOptions({
-    columnMode: ColumnMode.force,
-    headerHeight: 50,
-    footerHeight: 50,
-    limit: 5,
-    rowHeight: 'auto',
-    selectionType: SelectionType.multi,
-    columns: [
-      new TableColumn({ name: 'Name' }),
-      new TableColumn({ name: 'Gender' }),
-      new TableColumn({ name: 'Company' })
-    ]
-  });
+  options: TableOptions;
 
   constructor() {
     this.fetch((data) => {
@@ -70,9 +68,31 @@ export class App {
     req.send();
   }
 
+  selectAll(x,y){
+    selectAllRows(x,y);
+  }
+
   onSelectionChange(selected) {
     this.selections =  selected;
     console.log('Selection!', selected);
+  }
+
+  ngOnInit(): void {
+    this.options = new TableOptions({
+      columnMode: ColumnMode.force,
+      headerHeight: 50,
+      footerHeight: 50,
+      limit: 5,
+      rowHeight: 'auto',
+      selectionType: SelectionType.multi,
+      selectionCheckbox: true, 
+      columns: [
+        new TableColumn({ headerTemplate: this.checkBoxHeader, cellTemplate: this.checkBoxColumn, width: 1}),
+        new TableColumn({ name: 'Name' }),
+        new TableColumn({ name: 'Gender' }),
+        new TableColumn({ name: 'Company' })
+      ]
+    });
   }
 
 }

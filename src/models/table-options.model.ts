@@ -65,6 +65,9 @@ export class TableOptions {
   // sorts
   sorts: Array<Sort> = [];
 
+  // Selection checkbox
+  selectionCheckbox: boolean = false;
+
   constructor(props: any) {
     Object.assign(this, props);
     this.validate();

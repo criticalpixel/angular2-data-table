@@ -1,4 +1,5 @@
 import { NgModule, ApplicationRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -11,8 +12,8 @@ import '../components/datatable.scss';
 // import { App } from './paging-server';
 // import { App } from './sorting-server';
 // import { App } from './sorting-client';
-// import { App } from './selection';
-import { App } from './virtual';
+import { App } from './selection';
+// import { App } from './virtual';
 // import { App } from './inline';
 // import { App } from './scrolling';
 // import { App } from './pinning';
@@ -27,7 +28,7 @@ import { App } from './virtual';
 
 @NgModule({
   declarations: [App],
-  imports: [BrowserModule, Angular2DataTableModule],
+  imports: [BrowserModule, Angular2DataTableModule, FormsModule],
   bootstrap: [App]
 })
 export class AppModule {

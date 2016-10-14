@@ -217,11 +217,12 @@ export class DataTableBody implements OnInit, OnDestroy {
     if (multiShift || multiClick) {
       if (multiShift && event.shiftKey) {
         const selected = [...this.state.selected];
+
         selections = selectRowsBetween(selected, this.rows, index, this.prevIndex);
       } else if (multiShift && !event.shiftKey) {
         selections.push(row);
       } else {
-        const selected = [...this.state.selected];
+        const selected = [...this.state.selected]; 
         selections = selectRows(selected, row);
       }
     } else {
