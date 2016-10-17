@@ -11,8 +11,10 @@ import {
   DataTableHeaderCell,
   DataTablePager,
   DataTableBodyRow,
+  DataTableRowWrapper,
   ProgressBar,
-  DataTableBodyCell
+  DataTableBodyCell,
+  DatatableRowDetailTemplate
 } from './components';
 
 import {
@@ -48,10 +50,13 @@ export * from './components';
     DataTablePager,
     ProgressBar,
     DataTableBodyRow,
+    DataTableRowWrapper,
+    DatatableRowDetailTemplate,
     DataTableBodyCell
   ],
   exports: [
     DataTable,
+    DatatableRowDetailTemplate,
     DataTableColumn
   ]
 })

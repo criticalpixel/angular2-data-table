@@ -1,6 +1,6 @@
 {
   "name": "angular2-data-table",
-  "version": "0.9.3",
+  "version": "0.10.1",
   "description": "angular2-data-table is a Angular2 component for presenting large and complex data.",
   "main": "release/index.umd.js",
   "jsnext:main": "release/index.es.js",
@@ -51,11 +51,11 @@
   },
   "homepage": "https://github.com/swimlane/angular2-data-table#readme",
   "peerDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/compiler": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "@angular/platform-browser": "^2.0.0",
-    "@angular/platform-browser-dynamic": "^2.0.0",
+    "@angular/common": "^2.1.0",
+    "@angular/compiler": "^2.1.0",
+    "@angular/core": "^2.1.0",
+    "@angular/platform-browser": "^2.1.0",
+    "@angular/platform-browser-dynamic": "^2.1.0",
     "core-js": "^2.4.0"
   },
   "devDependencies": {
@@ -66,6 +66,8 @@
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angularclass/hmr": "^1.2.1",
     "@angularclass/hmr-loader": "^3.0.2",
+    "@angular/compiler-cli": "^0.6.4",
+    "@angular/platform-server": "~2.1.0",
     "@types/core-js": "^0.9.28",
     "@types/node": "^6.0.31",
     "autoprefixer": "^6.4.0",
@@ -76,7 +78,7 @@
     "css-loader": "^0.24.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "html-webpack-plugin": "^2.22.0",
-    "node-sass": "^3.7.0",
+    "node-sass": "^3.10.1",
     "npm-run-all": "^3.1.0",
     "postcss": "^5.1.1",
     "postcss-loader": "^0.9.1",
